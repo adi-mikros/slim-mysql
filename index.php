@@ -6,7 +6,13 @@ $app = new Slim\App;
 
 #Container untuk membuat semacam fungsi / function
 $container = $app->getContainer();
-
+$container['errorHandler'] = function ($c) {
+    return function ($request, $response, $exception) use ($c) {
+        return $response->withStatus(500)
+            ->withHeader('Content-Type', 'text/html')
+            ->write($exception);
+    };
+};
 
 #middleware untuk CORS
 $app->add(function ($req, $res, $next) {
