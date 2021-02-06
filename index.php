@@ -25,7 +25,7 @@ $app->add(function ($req, $res, $next) {
 
 #buat container untuk database PDO
 $container['db'] = function(){
-    return new PDO('mysql:local=localhost;dbname=coba-slim', 'root', '');
+    return new PDO('mysql:local=localhost;dbname=coba-slim', 'biznizo', 'biznizo333$');
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////
